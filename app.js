@@ -1,12 +1,14 @@
 const express = require("express");
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
 const app = express();
 const port = process.env.PORT || 3001;
 
-const connectionString = process.env.DATABASE_URL;
+//const connectionString = process.env.DATABASE_URL;
 
-mongoose.connect(connectionString);
-app.listen(port, () => console.log(`App listening on port ${port}!`))
+app.listen(port, () => {
+  console.log(`App listening on port ${port}!`);
+  //mongoose.connect(connectionString);
+})
 app.get("/", (req, res) => res.type('html').send(html));
 
 const html = `
