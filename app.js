@@ -13,7 +13,6 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.get("/", (req, res) => res.type('html').send(html));
 
-
 const html = `
 <!DOCTYPE html>
 <html>
