@@ -1,15 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-
 const app = express();
 const port = process.env.PORT || 3001;
 
-// connect to mongodb & listen for requests
-const dbURI = 'mongodb+srv://organizer-main-db-0aa11a00c05:DrEsVwgQE2h6HSYV4nmkCuGmREJqvN@prod-us-central1-2.ih9la.mongodb.net/organizer-main-db-0aa11a00c05'
-
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(app.listen(port, () => console.log(`App listening on port ${port}!`)))
-  .catch(err => console.log(err));
+const connectionString = process.env.DATABASE_URL;
+await mongoose.connect(connectionString);
+app.listen(port, () => console.log(`App listening on port ${port}!`))
 
 app.get("/", (req, res) => res.type('html').send(html));
 
