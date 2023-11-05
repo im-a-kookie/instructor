@@ -8,15 +8,11 @@ const port = process.env.PORT || 3001;
 const dbURI = 'mongodb+srv://organizer-main-db-0aa11a00c05:DrEsVwgQE2h6HSYV4nmkCuGmREJqvN@prod-us-central1-2.ih9la.mongodb.net/organizer-main-db-0aa11a00c05'
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(app.listen(port, () => console.log(`App listening on port ${port}!`)))
   .catch(err => console.log(err));
-
-const server = app.listen(port, () => console.log(`App listening on port ${port}!`));
 
 app.get("/", (req, res) => res.type('html').send(html));
 
-
-server.keepAliveTimeout = 120 * 1000;
-server.headersTimeout = 120 * 1000;
 
 const html = `
 <!DOCTYPE html>
