@@ -4,7 +4,8 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 const connectionString = process.env.DATABASE_URL;
-await mongoose.connect(connectionString);
+
+mongoose.connect(connectionString);
 app.listen(port, () => console.log(`App listening on port ${port}!`))
 app.get("/", (req, res) => res.type('html').send(html));
 
